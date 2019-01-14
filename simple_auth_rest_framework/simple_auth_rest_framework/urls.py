@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from rest_framework.authtoken.views import obtain_auth_token
 from core import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('hello/', views.HelloView.as_view(), name='hello'),
+    url('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 ]
